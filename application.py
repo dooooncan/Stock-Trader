@@ -37,7 +37,10 @@ db = SQL("sqlite:///finance.db")
 
 # Make sure API key is set
 if not os.environ.get("API_KEY"):
-    raise RuntimeError("API_KEY not set")
+    try:
+        os.environ["API_KEY"] = 'pk_2f7a7ceee9694875901c41cab01cfee2'
+    except:
+        raise RuntimeError("API_KEY not set")
 
 #Index function (shows portfolio of stock)
 add_rows = []
